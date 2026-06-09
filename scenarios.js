@@ -696,6 +696,212 @@ const SCENARIOS = {
         choices: [] // Terminal node
       }
     }
+  },
+  
+  american_revolution: {
+    id: "american_revolution",
+    title: "What if the American Revolution failed?",
+    description: "In 1776, General George Washington is captured at the Battle of Long Island. The Continental Army collapses, and Great Britain establishes the British North American Parliament, altering the course of global democracy, industry, and slavery.",
+    icon: "shield",
+    category: "Colonial / Modern",
+    color: "#3a86ff",
+    gradient: "linear-gradient(135deg, #3a86ff 0%, #1e3a8a 100%)",
+    startYear: "1776 AD",
+    nodes: {
+      root: {
+        id: "root",
+        title: "The Capture of Washington",
+        year: "1776 AD",
+        summary: "General George Washington is captured by British forces at Long Island, leading to the collapse of the Continental Army.",
+        details: "Surrounded at Brooklyn Heights, Washington is taken prisoner. Deprived of leadership, the Continental Congress dissolves. Britain regains control of the thirteen colonies. King George III offers amnesty to all rebels who swear allegiance, ending the military phase of the rebellion but leaving deep political unrest.",
+        effects: [
+          { type: "stability", label: "+50% British Crown Control" },
+          { type: "military", label: "Continental Army Dissolved" }
+        ],
+        mapState: {
+          western_rome: { status: "empire_core", color: "#3a86ff", label: "Great Britain & France" },
+          germania: { status: "neutral", color: "#8ecae6", label: "Prussia & Austria" },
+          persia: { status: "neutral", color: "#ccd5ae", label: "Ottoman Empire" },
+          asia: { status: "neutral", color: "#a2d2ff", label: "Qing Dynasty" },
+          americas: { status: "subjugated_colonies", color: "#fb8500", label: "Thirteen Colonies (Under Crown)" },
+          africa: { status: "colonized", color: "#3a86ff", label: "British Trading Ports" }
+        },
+        choices: [
+          {
+            text: "Establish the British North American Parliament to grant colonists representation.",
+            nextNodeId: "american_parliament"
+          },
+          {
+            text: "Enforce military governorships and confiscate rebel estates.",
+            nextNodeId: "military_rule"
+          }
+        ]
+      },
+      american_parliament: {
+        id: "american_parliament",
+        title: "The Continental Parliament",
+        year: "1790 AD",
+        summary: "To prevent further rebellion, Westminster establishes a regional parliament in Philadelphia with direct representation in London.",
+        details: "The 'American Representation Act' resolves the issue of 'taxation without representation.' A new Anglo-American ruling class emerges. The American territories remain British, but enjoy high legislative autonomy. Trade restrictions are lifted, sparking an economic boom that links British industry directly with American raw materials.",
+        effects: [
+          { type: "economy", label: "+80% Trade Revenue" },
+          { type: "stability", label: "Colonial Unrest Pacified" }
+        ],
+        mapState: {
+          western_rome: { status: "imperial_core", color: "#3a86ff", label: "Anglo-American Empire" },
+          germania: { status: "neutral", color: "#8ecae6", label: "Prussia & Austria" },
+          persia: { status: "neutral", color: "#ccd5ae", label: "Ottoman Empire" },
+          asia: { status: "neutral", color: "#a2d2ff", label: "Qing Dynasty" },
+          americas: { status: "autonomous_dominion", color: "#3a86ff", label: "Dominion of America" },
+          africa: { status: "colonized", color: "#3a86ff", label: "British Empire" }
+        },
+        choices: [
+          {
+            text: "Abolish slavery across the entire British Empire early.",
+            nextNodeId: "early_abolition"
+          },
+          {
+            text: "Expand steam-powered rail networks into the Ohio Valley.",
+            nextNodeId: "steam_westward"
+          }
+        ]
+      },
+      military_rule: {
+        id: "military_rule",
+        title: "The Iron Governors",
+        year: "1785 AD",
+        summary: "Westminster appoints hardline military governors to rule the colonies, confiscating rebel assets and fueling guerilla campaigns.",
+        details: "Rejecting compromise, the Crown uses Hessian mercenaries to police the colonies. Patriot leaders go underground, forming the 'Sons of Liberty' partisan army. A brutal low-intensity war drags on, draining British coffers and inviting foreign intervention.",
+        effects: [
+          { type: "stability", label: "-40% Colonial Stability" },
+          { type: "military", label: "Guerilla War Outbreak" }
+        ],
+        mapState: {
+          western_rome: { status: "costly_war", color: "#e63946", label: "Great Britain" },
+          germania: { status: "neutral", color: "#8ecae6", label: "Prussia & Austria" },
+          persia: { status: "neutral", color: "#ccd5ae", label: "Ottoman Empire" },
+          asia: { status: "neutral", color: "#a2d2ff", label: "Qing Dynasty" },
+          americas: { status: "active_civil_war", color: "#e5383b", label: "America (Guerilla Zones)" },
+          africa: { status: "neutral", color: "#1b2336", label: "Sub-Saharan Africa" }
+        },
+        choices: [
+          {
+            text: "Accept secret French funding and arms to launch a second revolution.",
+            nextNodeId: "french_rebellion"
+          }
+        ]
+      },
+      early_abolition: {
+        id: "early_abolition",
+        title: "The Slavery Abolition Act of 1805",
+        year: "1805 AD",
+        summary: "The combined vote of British reformers and American MPs passes an early empire-wide abolition of slavery.",
+        details: "Abolitionists in London ally with northern American representatives to outlaw the slave trade and chattel slavery, sixty years earlier than in our timeline. The British Crown compensates landowners, and the transition is managed peacefully, reshaping the global cotton and sugar markets and completely avoiding the American Civil War.",
+        effects: [
+          { type: "stability", label: "Peaceful Social Integration" },
+          { type: "economy", label: "Agrarian Restructuring" }
+        ],
+        mapState: {
+          western_rome: { status: "enlightened", color: "#06d6a0", label: "Abolitionist Empire" },
+          germania: { status: "neutral", color: "#8ecae6", label: "Prussia & Austria" },
+          persia: { status: "neutral", color: "#ccd5ae", label: "Ottoman Empire" },
+          asia: { status: "neutral", color: "#a2d2ff", label: "Qing Dynasty" },
+          americas: { status: "abolitionist_dominion", color: "#06d6a0", label: "Dominion of America (Free)" },
+          africa: { status: "freed_sectors", color: "#06d6a0", label: "West African Protectorates" }
+        },
+        choices: [
+          {
+            text: "Establish sovereign Native American territories in the Great Lakes.",
+            nextNodeId: "native_sovereignty"
+          }
+        ]
+      },
+      steam_westward: {
+        id: "steam_westward",
+        title: "The Iron Empire",
+        year: "1815 AD",
+        summary: "British industrial capital funds the construction of a steam-powered trans-continental railroad network.",
+        details: "With all of North America unified under one administrative crown, steam railways expand west at an unprecedented pace. The Rocky Mountains are crossed by 1835. The vast agricultural and mineral wealth of the American West feeds British factories, turning the British Empire into an uncontested economic superpower.",
+        effects: [
+          { type: "science", label: "Trans-Continental Rail Tech" },
+          { type: "economy", label: "+150% Mineral Extraction" }
+        ],
+        mapState: {
+          western_rome: { status: "superpower", color: "#3a0ca3", label: "Anglo-American Empire" },
+          germania: { status: "neutral", color: "#8ecae6", label: "European Kingdoms" },
+          persia: { status: "neutral", color: "#ccd5ae", label: "Ottoman Empire" },
+          asia: { status: "trading", color: "#a2d2ff", label: "Qing Dynasty" },
+          americas: { status: "integrated_railway", color: "#3a0ca3", label: "Dominion of America" },
+          africa: { status: "colonized", color: "#3a0ca3", label: "Anglo-American Empire" }
+        },
+        choices: [
+          {
+            text: "Unify the hemisphere under a single Anglo-American trade treaty.",
+            nextNodeId: "hemispheric_hegemony"
+          }
+        ]
+      },
+      french_rebellion: {
+        id: "french_rebellion",
+        title: "The Jacobin Rebellion",
+        year: "1792 AD",
+        summary: "A French-backed second revolution breaks out, heavily influenced by radical French Jacobin ideals.",
+        details: "Supported by French funds and naval blockades, the Sons of Liberty launch a highly coordinated insurrection. They capture Philadelphia and declare a radical republican constitution. Old loyalist estates are seized, and the 'United Republic of Columbia' is established, closely aligned with revolutionary France.",
+        effects: [
+          { type: "military", label: "Republican Victory" },
+          { type: "stability", label: "+40% Radical Reform" }
+        ],
+        mapState: {
+          western_rome: { status: "at_war", color: "#ff006e", label: "Jacobin France" },
+          germania: { status: "hostile", color: "#8ecae6", label: "Monarchic Coalition" },
+          persia: { status: "neutral", color: "#ccd5ae", label: "Ottoman Empire" },
+          asia: { status: "neutral", color: "#a2d2ff", label: "Qing Dynasty" },
+          americas: { status: "radical_republic", color: "#ff006e", label: "Republic of Columbia" },
+          africa: { status: "neutral", color: "#1b2336", label: "Sub-Saharan Africa" }
+        },
+        choices: [] // Terminal
+      },
+      native_sovereignty: {
+        id: "native_sovereignty",
+        title: "The Indian Covenant",
+        year: "1830 AD",
+        summary: "Britain signs a treaty establishing a sovereign confederation of Native Nations in the Midwest.",
+        details: "As a reward for alliances during the rebellion, the Crown demarcates the Ohio and Great Lakes territory as the 'Sovereign Confederation of Pontiac.' British law protects native lands from settler encroachment. A hybrid state develops, fusing native council democracy with modern industrial tools.",
+        effects: [
+          { type: "stability", label: "Long-term Border Peace" },
+          { type: "science", label: "Agricultural Adaptations" }
+        ],
+        mapState: {
+          western_rome: { status: "stable_commonwealth", color: "#06d6a0", label: "Anglo-American Commonwealth" },
+          germania: { status: "neutral", color: "#8ecae6", label: "European Kingdoms" },
+          persia: { status: "neutral", color: "#ccd5ae", label: "Ottoman Empire" },
+          asia: { status: "neutral", color: "#a2d2ff", label: "Qing Dynasty" },
+          americas: { status: "native_alliance", color: "#06d6a0", label: "Confederation of Pontiac (Sovereign)" },
+          africa: { status: "stable_commonwealth", color: "#06d6a0", label: "Anglo-American Commonwealth" }
+        },
+        choices: [] // Terminal
+      },
+      hemispheric_hegemony: {
+        id: "hemispheric_hegemony",
+        title: "The Global Sterling Union",
+        year: "1850 AD",
+        summary: "The entire Western Hemisphere is integrated into a single trade zone, creating a Pax Britannica.",
+        details: "By 1850 AD, the Anglo-American Empire controls 70% of global industrial production. The sterling pound is the undisputed global currency. A representative imperial council oversees global trade routes, ensuring century-long peace and rapid scientific advancement.",
+        effects: [
+          { type: "economy", label: "Global Trade Domination" },
+          { type: "prestige", label: "Pax Sterling Established" }
+        ],
+        mapState: {
+          western_rome: { status: "hegemony", color: "#3a0ca3", label: "Imperial Core (British)" },
+          germania: { status: "integrated", color: "#3a0ca3", label: "Imperial Allies" },
+          persia: { status: "integrated", color: "#3a0ca3", label: "Imperial Allies" },
+          asia: { status: "trading", color: "#a2d2ff", label: "Qing Dynasty" },
+          americas: { status: "hegemony", color: "#3a0ca3", label: "Dominion of America" },
+          africa: { status: "hegemony", color: "#3a0ca3", label: "Imperial Territories" }
+        },
+        choices: [] // Terminal
+      }
+    }
   }
 };
 
@@ -703,3 +909,4 @@ const SCENARIOS = {
 if (typeof window !== "undefined") {
   window.SCENARIOS = SCENARIOS;
 }
+
