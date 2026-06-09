@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrono-Sim: Alternate History "What if?" Simulator</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Simulate fascinating alternate history timelines. Diverge from critical historical points, explore interactive branching paths, and view territorial maps that rewrite world history in real-time.">
+    <meta name="keywords" content="alternate history, what if, historical simulator, timeline generator, branching paths, interactive map, roman empire, AI history">
+    <meta name="author" content="Chrono-Sim team">
+    
+    <!-- Google Fonts: Outfit (headings) & Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom Style System -->
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- React & ReactDOM (Production CDNs) -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    
+    <!-- Babel Standalone for runtime JSX parsing -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- Main Application mount point -->
+    <div id="root">
+        <!-- Fallback loading visual while Babel parses React -->
+        <div style="background-color: #0a0e17; color: #f8f9fa; font-family: 'Outfit', sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; gap: 1.5rem;">
+            <div style="width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.05); border-radius: 50%; border-top-color: #3a86ff; animation: spin 1s linear infinite;"></div>
+            <div style="font-size: 1.1rem; color: #3a86ff; letter-spacing: 0.1em; font-weight: 600; text-transform: uppercase;">Initializing Chrono-Engine...</div>
+        </div>
+    </div>
+
+    <!-- Keyframe animation style for the fallback spinner -->
+    <style>
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+
+    <!-- Load scenarios database first -->
+    <script src="scenarios.js"></script>
+    
+    <!-- Load React Application (parsed by Babel standalone) -->
+    <script type="text/babel" src="app.js"></script>
+
+    <!-- Initialize React into the DOM -->
+    <script type="text/babel">
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+    </script>
+</body>
+</html>
