@@ -286,7 +286,7 @@ Schema:
   }
 }
 
-Regions definitions:
+Regions definitions for mapState (Map these IDs to the geopolitical powers of your predicted alternate history):
 - "americas": North and South America
 - "western_rome": Western Europe / Mediterranean (UK, France, Spain, Italy)
 - "germania": Northern and Eastern Europe (Germany, Scandinavia, Poland)
@@ -295,7 +295,21 @@ Regions definitions:
 - "asia": India, China, Russia, East Asia
 - "africa": Sub-Saharan Africa
 
-For each mapState region, customize the "label", "status", and "color" to accurately match your prediction of the political landscape at that point in the timeline. Use the main scenario color for the dominant empire, and other distinct hex colors for other powers. Keep neutral regions dark gray (#1b2336).
+CRITICAL INSTRUCTIONS FOR MAP STATE:
+1. For each region, you must customize the "label", "status", and "color" to match the alternate history of the scenario.
+2. DO NOT use modern names (like "EU", "NATO", "IMF", "United Nations", etc.) if they do not exist in the alternate timeline.
+3. For example, if the prompt is "What if Germany won World War II?", the labels for the regions at the divergence (root) and subsequent nodes should be customized:
+   - "germania" label: "Greater German Reich" (color e.g., dark red or dark gray)
+   - "western_rome" label: "German Occupied Europe" or "Vichy France" (color e.g., similar to Germany)
+   - "eastern_rome" label: "Italian Empire" or "German East"
+   - "asia" label: "Greater East Asia Co-Prosperity Sphere (Japan)" (color e.g., red/orange)
+   - "americas" label: "United States (Isolationist)" or "American Defense Zone"
+   - "africa" label: "German Colonial Africa (Mittelafrika)"
+   - "persia" label: "Neutral Middle East Zone"
+4. The timeline years must match the actual historical period (e.g. starting in 1945 AD for a WWII scenario, not 2024 AD).
+
+Choose appropriate hex colors that reflect the political alignment (e.g. matching colors for allied blocs, distinct colors for opposing empires, and gray for neutral zones). Ensure the map accurately visualizes your predicted alternate history!
+
 
 Crucial Instruction: Respond ONLY with a valid JSON block. Do not include markdown code block syntax. Ensure all JSON fields are validly quoted and formatted.
 `;
